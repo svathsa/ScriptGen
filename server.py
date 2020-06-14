@@ -105,7 +105,7 @@ def predict():
             return render_template('index.html', glon=glon)
         prime_word = prime_word.lower()
         if prime_word not in vocab_to_int:
-            glon = '<div class="script_body"> ' + "Please enter a valid Seinfeld character &#128522;." + '</div>'
+            glon = '<div class="script_body"> ' + "Please enter a valid Seinfeld character &#128522;. Try Jerry, Elaine, George or Kramer" + '</div>'
             return render_template('index.html', glon=glon)
         gen_len = int(gen_len)
         generated_script = get_prediction(trained_rnn, vocab_to_int[prime_word + ':'], int_to_vocab, token_dict, vocab_to_int[pad_word], gen_len)

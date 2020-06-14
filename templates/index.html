@@ -1,0 +1,24 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"></link>			
+	<script src="{{ url_for('static',filename='js/script.js')}}"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="heading">
+		<h1>Seinfeld Script Generator &#127916;</h1>
+		</div class="form">
+		<div>
+		<div class="form_wrapper">
+		<form action="{{ url_for('predict') }}" method="post">
+			<div class="form_element"> Seed Word: &#129322;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" name="prime_word"> <br> </div>
+			<div class = "form_element"> Length of Script: &#129303; &nbsp; &nbsp; &nbsp;<input type="text" name="gen_len"> <br> </div>
+			<div class="form_element"><button type="submit" class="button">Submit &#128640;</button></div>
+		</form>
+		</div>
+		</div>	
+		<p class="script_text">
+			{{glon | safe}}
+		</p>
+	</body>
+</html>

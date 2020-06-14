@@ -2,19 +2,26 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin: 20%;
-    margin-top: 10%;
+    margin-top: 1%;
+    margin-left: 20%;
+    margin-right: 20%;
     font-family: 'Poppins', sans-serif;
     background-image: linear-gradient(to bottom right, #9c4be3, #4b83e3);
 }
 
 .heading {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     font-size: 275%;
     color: aliceblue;
     font-family: 'Oxygen', sans-serif;
+}
+
+.heading_element{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .form {
@@ -39,7 +46,9 @@ input:focus, textarea:focus, select:focus, button:focus{
 
 .form_element{
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
+    align-content: center;
     margin-top: 10%;
 }
 

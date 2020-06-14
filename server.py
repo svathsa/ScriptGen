@@ -100,16 +100,13 @@ def predict():
     if request.method == 'POST':
         prime_word = request.form['prime_word']
         gen_len = request.form['gen_len']
-        if not is_int(gen_len):
+        if not is_int(gen_len) or int(gen_len) > 2500:
             glon = '<div class="script_body"> ' + "Please enter a valid number &#128522;." + '</div>'
             return render_template('index.html', glon=glon)
+        prime_word = prime_word.lower()
         if prime_word not in vocab_to_int:
-            vocab_to_int[prime_word] = len(vocab_to_int) + 10
-            int_to_vocab[vocab_to_int[prime_word]] = prime_word
-        prime_id = vocab_to_int[prime_word]
-        if prime_word + ':' not in vocab_to_int:
-            vocab_to_int[prime_word + ':'] = vocab_to_int[prime_word]  + 1
-            int_to_vocab[vocab_to_int[prime_word + ':']] = prime_word + ':'
+            glon = '<div class="script_body"> ' + "Please enter a valid Seinfeld character &#128522;." + '</div>'
+            return render_template('index.html', glon=glon)
         gen_len = int(gen_len)
         generated_script = get_prediction(trained_rnn, vocab_to_int[prime_word + ':'], int_to_vocab, token_dict, vocab_to_int[pad_word], gen_len)
         return render_template('index.html', glon=generated_script)
